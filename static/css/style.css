@@ -313,3 +313,24 @@ footer {
     transform: translateY(-2px);
     transition: all 0.3s ease;
 }
+/* 标签页容器 */
+.tab-container {
+    position: relative;
+    min-height: 500px;
+}
+
+/* 标签页内容 */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 淡入动画 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
