@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>无人机飞行员 - 空中视野的创造者</title>
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/style.css?v=2.0">
 </head>
 <body>
     <header>
@@ -104,6 +104,9 @@
     </footer>
 
     <script>
+    // 在脚本开头添加版本信息
+    const SITE_VERSION = "2.0";
+    console.log("网站版本:", SITE_VERSION);
         // 显示指定标签页并隐藏其他所有标签页
         function showTab(tabName) {
             console.log('切换到标签页:', tabName);
