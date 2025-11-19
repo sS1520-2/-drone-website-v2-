@@ -102,7 +102,7 @@ main {
     margin-top: 80px;
 }
 
- /* 标签页容器 */
+/* 标签页容器 */
 .tab-container {
     position: relative;
     min-height: 500px;
@@ -113,13 +113,47 @@ main {
     animation: fadeIn 0.5s ease-in;
 }
 
-.tab-content.active {
-    display: block;
+/* 旅程部分 */
+.journey {
+    background: white;
+    margin: 2rem auto;
+    padding: 5rem 5%;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.journey h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #3366cc;
+    font-size: 2.5rem;
+}
+
+.journey-content {
+    padding: 0 5%;
+}
+
+.journey-placeholder {
+    text-align: center;
+    padding: 3rem;
+}
+
+.journey-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.journey-placeholder h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #3366cc;
+}
+
+.journey-placeholder p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #555;
 }
 
 /* 关于我们部分 */
@@ -148,7 +182,6 @@ main {
     margin-bottom: 1.5rem;
     line-height: 1.8;
 }
-
 /* 作品集/视频部分 */
 .gallery {
     background: white;
@@ -269,6 +302,7 @@ footer {
     padding: 2rem;
     margin-top: 4rem;
 }
+
 /* 动画效果 */
 @keyframes fadeIn {
     from {
@@ -300,62 +334,8 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    .about, .gallery, .contact {
+    .about, .gallery, .contact, .journey {
         padding: 3rem 5%;
         margin: 1rem auto;
     }
-}
-
-/* 技能项样式（保留以备将来使用） */
-.skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.skill-item {
-    background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.skill-item:hover {
-    transform: translateY(-5px);
-}
-
-.skill-item h3 {
-    color: #3366cc;
-    margin-bottom: 1rem;
-}
-
-.skill-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.skill-level {
-    margin-top: 1.5rem;
-}
-
-.level-bar {
-    background: #e0e0e0;
-    border-radius: 10px;
-    height: 8px;
-    margin-bottom: 0.5rem;
-    overflow: hidden;
-}
-
-.level-progress {
-    background: linear-gradient(90deg, #667eea, #764ba2);
-    height: 100%;
-    border-radius: 10px;
-    transition: width 1s ease-in-out;
-}
-
-.skill-level span {
-    font-size: 0.9rem;
-    color: #666;
-    font-weight: 500;
 }

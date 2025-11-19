@@ -28,14 +28,29 @@
                 <h1>探索无限空中视野</h1>
                 <p>天空不是极限，而是新的起点</p>
                 <p>用代码编织梦想，用无人机捕捉视角</p>
-                <button class="cta-button" onclick="learnMore()">探索我们的旅程</button>
+                <button class="cta-button" onclick="showTab('journey')">探索我们的旅程</button>
             </div>
         </section>
 
         <!-- 标签页容器 -->
         <div class="tab-container">
+            <!-- 探索旅程标签页 -->
+            <div id="journey-tab" class="tab-content">
+                <section class="journey">
+                    <h2>我们的旅程</h2>
+                    <div class="journey-content">
+                        <div class="journey-placeholder">
+                            <div class="journey-icon">🚀</div>
+                            <h3>旅程记录即将上线</h3>
+                            <p>我们正在整理精彩的旅程故事和视频</p>
+                            <p>敬请期待！</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
             <!-- 关于我们团队标签页 -->
-            <div id="about-tab" class="tab-content active">
+            <div id="about-tab" class="tab-content">
                 <section class="about">
                     <h2>关于我们团队</h2>
                     <div class="about-content">
@@ -82,72 +97,67 @@
                 </section>
             </div>
         </div>
-    </main>
+         </main>
 
     <footer>
         <p>&copy; 2024 恩泰无人机空间. 由 Netlify 强力驱动</p>
     </footer>
 
     <script>
-        // 平滑滚动函数
-        function smoothScroll(targetId) {
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
-
-        // 显示指定标签页
+        // 显示指定标签页并隐藏其他所有标签页
         function showTab(tabName) {
             console.log('切换到标签页:', tabName);
             
-            // 隐藏所有标签页
+            // 获取所有标签页
             const tabContents = document.querySelectorAll('.tab-content');
+            
+            // 隐藏所有标签页
             tabContents.forEach(tab => {
-                tab.classList.remove('active');
+                tab.style.display = 'none';
             });
             
             // 显示选中的标签页
             const activeTab = document.getElementById(tabName + '-tab');
             if (activeTab) {
-                activeTab.classList.add('active');
+                activeTab.style.display = 'block';
                 console.log('已激活标签页:', activeTab.id);
+                
+                // 滚动到标签页容器
+                setTimeout(() => {
+                    const tabContainer = document.querySelector('.tab-container');
+                    if (tabContainer) {
+                        tabContainer.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }, 100);
             } else {
                 console.error('未找到标签页:', tabName + '-tab');
             }
-            // 滚动到标签页容器
-            setTimeout(() => {
-                const tabContainer = document.querySelector('.tab-container');
-                if (tabContainer) {
-                    tabContainer.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }, 100);
             
             return false;
         }
 
-        // 探索我们的旅程按钮功能
-        function learnMore() {
-            console.log('learnMore 函数被调用');
-            showTab('about');
-        }
-
-        // 页面加载后设置所有事件
+        // 页面加载后初始化
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('页面加载完成，初始化事件');
+            console.log('页面加载完成，初始化标签页系统');
             
             // 为首页链接添加平滑滚动
             const homeLink = document.querySelector('a[href="#home"]');
             if (homeLink) {
                 homeLink.addEventListener('click', function(e) {
                     e.preventDefault();
-                    smoothScroll('home');
+                    // 隐藏所有标签页
+                    const tabContents = document.querySelectorAll('.tab-content');
+                    tabContents.forEach(tab => {
+                        tab.style.display = 'none';
+                    });
+                    // 滚动到首页
+                    document.getElementById('home').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 });
             }
             
@@ -164,10 +174,12 @@
                 });
             });
             
-            // 默认显示关于我们团队标签页
-            showTab('about');
+            // 初始状态：隐藏所有标签页
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => {
+                tab.style.display = 'none';
+            });
         });
     </script>
 </body>
 </html>
-   
