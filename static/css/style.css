@@ -301,3 +301,15 @@ footer {
     margin-bottom: 0.5rem;
     opacity: 0.9;
 }
+/* 导航链接激活状态 */
+.nav-links a.active {
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* 导航链接悬停效果 */
+.nav-links a:hover {
+    color: #667eea;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}

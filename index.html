@@ -10,13 +10,13 @@
     <header>
         <nav>
             <div class="logo">
-                <h2>✈️ 无人机空间</h2>
+                <h2>✈️ 恩泰无人机空间</h2>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">首页</a></li>
-                <li><a href="#about">关于我</a></li>
+                <li><a href="#about">关于我们团队</a></li>
                 <li><a href="#gallery">作品集</a></li>
-                <li><a href="#contact">联系我</a></li>
+                <li><a href="#contact">联系我们</a></li>
             </ul>
         </nav>
     </header>
@@ -42,8 +42,8 @@
     </div>
 </section>
 
-        <!--技能图谱部分 -->
-<section id="gallery" class="gallery">
+        <!--视频部分 -->
+<section id="portfolio" class="portfolio">
     <h2>精彩瞬间</h2>
     <div class="video-container">
         <div class="video-placeholder">
@@ -54,7 +54,6 @@
         </div>
     </div>
 </section>
-<!-- 添加在技能图谱部分后面 -->
 <section id="contact" class="contact">
     <h2>联系我</h2>
     <div class="contact-content">
@@ -76,9 +75,58 @@
     </footer>
 
     <script>
-        function learnMore() {
-            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+    // 平滑滚动函数
+    function smoothScroll(targetId) {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
+    }
+
+    // 页面加载后设置导航点击事件
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                smoothScroll(targetId);
+            });
+        });
+    });
+
+    // 更新现有的 learnMore 函数
+    function learnMore() {
+        smoothScroll('about');
+    }
+
+    // 第六步：滚动时高亮当前导航项
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
 
         // 滚动动画
         window.addEventListener('scroll', function() {
