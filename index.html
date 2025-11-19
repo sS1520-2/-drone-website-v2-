@@ -85,7 +85,7 @@
         <p>&copy; 2024 我的无人机空间. 由 Flask 强力驱动 | 正在学习部署到互联网...</p>
     </footer>
 
-    <script>
+   <script>
     // 平滑滚动函数
     function smoothScroll(targetId) {
         const targetElement = document.getElementById(targetId);
@@ -97,44 +97,108 @@
         }
     }
 
-    // 页面加载后设置导航点击事件
-    document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('.nav-links a');
+    // 显示指定标签页
+    function showTab(tabName) {
+        console.log('切换到标签页:', tabName); // 调试信息
         
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                smoothScroll(targetId);
-            });
+        // 隐藏所有标签页
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(tab => {
+            tab.classList.remove('active');
         });
-    });
-
-    // 更新现有的 learnMore 函数
-    function learnMore() {
-        smoothScroll('about');
+        
+        // 显示选中的标签页
+        const activeTab = document.getElementById(tabName + '-tab');
+        if (activeTab) {
+            activeTab.classList.add('active');
+            console.log('已激活标签页:', activeTab.id); // 调试信息
+        } else {
+            console.error('未找到标签页:', tabName + '-tab'); // 错误信息
+        }
+        
+        return false; // 阻止链接默认行为
     }
 
-    // 第六步：滚动时高亮当前导航项
-    window.addEventListener('scroll', function() {
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-links a');
+    // 探索我们的旅程按钮功能
+    function learnMore() {
+        console.log('learnMore 函数被调用'); // 调试信息
+        showTab('about');
         
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollY >= (sectionTop - 200)) {
-                current = section.getAttribute('id');
+        // 确保滚动到标签页容器
+        setTimeout(() => {
+            const tabContainer = document.querySelector('.tab-container');
+            if (tabContainer) {
+                tabContainer.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
+        }, 100);
+    }
+
+    // 页面加载后设置所有事件
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('页面加载完成，初始化事件'); // 调试信息
+        
+        // 为首页链接添加平滑滚动
+        const homeLink = document.querySelector('a[href="#home"]');
+        if (homeLink) {
+            homeLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                smoothScroll('home');
+            });
+        }
+        
+        // 为联系我链接添加平滑滚动
+        const contactLink = document.querySelector('a[href="#contact"]');
+        if (contactLink) {
+            contactLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                smoothScroll('contact');
+            });
+        }
+        
+        // 为关于我们团队链接添加点击事件
+        const aboutLinks = document.querySelectorAll('a[onclick*="about"]');
+        aboutLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                showTab('about');
+                
+                // 确保滚动到标签页容器
+                setTimeout(() => {
+                    const tabContainer = document.querySelector('.tab-container');
+                    if (tabContainer) {
+                        tabContainer.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }, 100);
+            });
         });
         
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === current) {
-                link.classList.add('active');
-            }
+        // 为作品集链接添加点击事件
+        const portfolioLinks = document.querySelectorAll('a[onclick*="portfolio"]');
+        portfolioLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                showTab('portfolio');
+                
+                // 确保滚动到标签页容器
+                setTimeout(() => {
+                    const tabContainer = document.querySelector('.tab-container');
+                    if (tabContainer) {
+                        tabContainer.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }, 100);
+            });
         });
+        
+        // 默认显示关于我们团队标签页
+        showTab('about');
     });
 </script>
