@@ -12,11 +12,11 @@
             <div class="logo">
                 <h2>✈️ 恩泰无人机空间</h2>
             </div>
-            <ul class="nav-links">
+          <ul class="nav-links">
     <li><a href="#home">首页</a></li>
-    <li><a href="#" onclick="showTab('about')">关于我们团队</a></li>
-    <li><a href="#" onclick="showTab('portfolio')">作品集</a></li>
-    <li><a href="#contact">联系我们</a></li>
+    <li><a href="#" onclick="showTab('about'); return false;">关于我们团队</a></li>
+    <li><a href="#" onclick="showTab('portfolio'); return false;">作品集</a></li>
+    <li><a href="#" onclick="showTab('contact'); return false;">联系我</a></li>
 </ul>
         </nav>
     </header>
@@ -33,7 +33,24 @@
 </section>
 
 <!-- 标签页容器 -->
+ <!-- 联系我标签页 -->
 <div class="tab-container">
+    <section id="contact" class="contact">
+    <h2>联系我</h2>
+    <div class="contact-content">
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>📞 电话联系</h3>
+                <p>17316838479</p>
+                <a href="tel:17316838479" class="contact-button">立即拨打</a>
+            </div>
+            <div class="contact-item">
+                <h3>💼 合作方向</h3>
+                <p>无人机航拍 · 编程教学 · 项目开发</p>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- 关于我们团队标签页 -->
     <div id="about-tab" class="tab-content active">
         <section class="about">
@@ -62,24 +79,6 @@
         </section>
     </div>
 </div>
-
-<!-- 联系我部分 -->
-<section id="contact" class="contact">
-    <h2>联系我</h2>
-    <div class="contact-content">
-        <div class="contact-info">
-            <div class="contact-item">
-                <h3>📞 电话联系</h3>
-                <p>17316838479</p>
-                <a href="tel:17316838479" class="contact-button">立即拨打</a>
-            </div>
-            <div class="contact-item">
-                <h3>💼 合作方向</h3>
-                <p>无人机航拍 · 编程教学 · 项目开发</p>
-            </div>
-        </div>
-    </div>
-</section>
 </section>
     <footer>
         <p>&copy; 2024 我的无人机空间. 由 Flask 强力驱动 | 正在学习部署到互联网...</p>
