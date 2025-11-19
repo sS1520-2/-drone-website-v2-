@@ -5,7 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>无人机飞行员 - 空中视野的创造者</title>
     <<link rel="stylesheet" href="static/css/style.css">>
-<!-- 标签页内容容器 -->
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h2>✈️ 恩泰无人机空间</h2>
+            </div>
+            <ul class="nav-links">
+    <li><a href="#home">首页</a></li>
+    <li><a href="#" onclick="showTab('about')">关于我们团队</a></li>
+    <li><a href="#" onclick="showTab('portfolio')">作品集</a></li>
+    <li><a href="#contact">联系我们</a></li>
+</ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 首页/英雄区域 -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>探索无限空中视野</h1>
+        <p>天空不是极限，而是新的起点</p>
+        <p>用代码编织梦想，用无人机捕捉视角</p>
+        <button class="cta-button" onclick="learnMore()">探索我们的旅程</button>
+    </div>
+</section>
+
+<!-- 标签页容器 -->
 <div class="tab-container">
     <!-- 关于我们团队标签页 -->
     <div id="about-tab" class="tab-content active">
@@ -35,7 +62,8 @@
         </section>
     </div>
 </div>
-</section>
+
+<!-- 联系我部分 -->
 <section id="contact" class="contact">
     <h2>联系我</h2>
     <div class="contact-content">
@@ -52,43 +80,61 @@
         </div>
     </div>
 </section>
+</section>
     <footer>
         <p>&copy; 2024 我的无人机空间. 由 Flask 强力驱动 | 正在学习部署到互联网...</p>
     </footer>
 
     <script>
-    // 显示指定标签页
-function showTab(tabName) {
-    // 隐藏所有标签页
-    const tabContents = document.querySelectorAll('.tab-content');
-    tabContents.forEach(tab => {
-        tab.classList.remove('active');
-    });
-    
-    // 显示选中的标签页
-    const activeTab = document.getElementById(tabName + '-tab');
-    if (activeTab) {
-        activeTab.classList.add('active');
+    // 平滑滚动函数
+    function smoothScroll(targetId) {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     }
-    
-    // 更新导航激活状态
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-    });
-    
-    // 可选：添加URL哈希，便于分享链接
-    window.location.hash = tabName;
-}
 
-// 页面加载时显示默认标签页
-document.addEventListener('DOMContentLoaded', function() {
-    // 根据URL哈希显示对应标签页
-    const hash = window.location.hash.substring(1);
-    if (hash === 'about' || hash === 'portfolio') {
-        showTab(hash);
-    } else {
-        // 默认显示关于我们团队
-        showTab('about');
+    // 页面加载后设置导航点击事件
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                smoothScroll(targetId);
+            });
+        });
+    });
+
+    // 更新现有的 learnMore 函数
+    function learnMore() {
+        smoothScroll('about');
     }
-});
+
+    // 第六步：滚动时高亮当前导航项
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
