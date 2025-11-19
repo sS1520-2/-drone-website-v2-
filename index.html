@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>无人机飞行员 - 空中视野的创造者</title>
-    <<link rel="stylesheet" href="static/css/style.css">>
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
     <header>
@@ -12,193 +12,162 @@
             <div class="logo">
                 <h2>✈️ 恩泰无人机空间</h2>
             </div>
-          <ul class="nav-links">
-    <li><a href="#home">首页</a></li>
-    <li><a href="#" onclick="showTab('about'); return false;">关于我们团队</a></li>
-    <li><a href="#" onclick="showTab('portfolio'); return false;">作品集</a></li>
-    <li><a href="#" onclick="showTab('contact'); return false;">联系我</a></li>
-</ul>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#" onclick="showTab('about'); return false;">关于我们团队</a></li>
+                <li><a href="#" onclick="showTab('portfolio'); return false;">作品集</a></li>
+                <li><a href="#" onclick="showTab('contact'); return false;">联系我</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
         <!-- 首页/英雄区域 -->
-<section id="home" class="hero">
-    <div class="hero-content">
-        <h1>探索无限空中视野</h1>
-        <p>天空不是极限，而是新的起点</p>
-        <p>用代码编织梦想，用无人机捕捉视角</p>
-        <button class="cta-button" onclick="learnMore()">探索我们的旅程</button>
-    </div>
-</section>
-
-<!-- 标签页容器 -->
- 
-</section>
-    <!-- 关于我们团队标签页 -->
-    <div id="about-tab" class="tab-content active">
-        <section class="about">
-            <h2>关于我们团队</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>一群热爱无人机的少年，怀揣着对天空的向往和对技术的热情，等待着你加入我们的飞行之旅。</p>
-                    <p>在这里，我们分享飞行经验、技术心得，共同探索无人机的无限可能。</p>
-                </div>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>探索无限空中视野</h1>
+                <p>天空不是极限，而是新的起点</p>
+                <p>用代码编织梦想，用无人机捕捉视角</p>
+                <button class="cta-button" onclick="learnMore()">探索我们的旅程</button>
             </div>
         </section>
-    </div>
-    
-    <!-- 作品集标签页 -->
-    <div id="portfolio-tab" class="tab-content">
-        <section class="gallery">
-            <h2>精彩瞬间</h2>
-            <div class="video-container">
-                <div class="video-placeholder">
-                    <div class="video-icon">🎬</div>
-                    <h3>精彩视频即将上线</h3>
-                    <p>我们正在准备最震撼的无人机航拍视频</p>
-                    <p>敬请期待！</p>
-                </div>
+
+        <!-- 标签页容器 -->
+        <div class="tab-container">
+            <!-- 关于我们团队标签页 -->
+            <div id="about-tab" class="tab-content active">
+                <section class="about">
+                    <h2>关于我们团队</h2>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p>一群热爱无人机的少年，怀揣着对天空的向往和对技术的热情，等待着你加入我们的飞行之旅。</p>
+                            <p>在这里，我们分享飞行经验、技术心得，共同探索无人机的无限可能。</p>
+                        </div>
+                    </div>
+                </section>
             </div>
+            
+            <!-- 作品集标签页 -->
+            <div id="portfolio-tab" class="tab-content">
+                <section class="gallery">
+                    <h2>精彩瞬间</h2>
+                    <div class="video-container">
+                        <div class="video-placeholder">
+                            <div class="video-icon">🎬</div>
+                            <h3>精彩视频即将上线</h3>
+                            <p>我们正在准备最震撼的无人机航拍视频</p>
+                            <p>敬请期待！</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
             <!-- 联系我标签页 -->
-<div class="tab-container">
-    <section id="contact" class="contact">
-    <h2>联系我</h2>
-    <div class="contact-content">
-        <div class="contact-info">
-            <div class="contact-item">
-                <h3>📞 电话联系</h3>
-                <p>17316838479</p>
-                <a href="tel:17316838479" class="contact-button">立即拨打</a>
-            </div>
-            <div class="contact-item">
-                <h3>💼 合作方向</h3>
-                <p>无人机航拍 · 编程教学 · 项目开发</p>
+            <div id="contact-tab" class="tab-content">
+                <section class="contact">
+                    <h2>联系我</h2>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <h3>📞 电话联系</h3>
+                                <p>17316838479</p>
+                                <a href="tel:17316838479" class="contact-button">立即拨打</a>
+                            </div>
+                            <div class="contact-item">
+                                <h3>💼 合作方向</h3>
+                                <p>无人机航拍 · 编程教学 · 项目开发</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
-    </div>
-        </section>
-    </div>
-</div>
-</section>
+    </main>
+
     <footer>
-        <p>&copy; 2024 我的无人机空间. 由 Flask 强力驱动 | 正在学习部署到互联网...</p>
+        <p>&copy; 2024 恩泰无人机空间. 由 Netlify 强力驱动</p>
     </footer>
 
-   <script>
-    // 平滑滚动函数
-    function smoothScroll(targetId) {
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    }
-
-    // 显示指定标签页
-    function showTab(tabName) {
-        console.log('切换到标签页:', tabName); // 调试信息
-        
-        // 隐藏所有标签页
-        const tabContents = document.querySelectorAll('.tab-content');
-        tabContents.forEach(tab => {
-            tab.classList.remove('active');
-        });
-        
-        // 显示选中的标签页
-        const activeTab = document.getElementById(tabName + '-tab');
-        if (activeTab) {
-            activeTab.classList.add('active');
-            console.log('已激活标签页:', activeTab.id); // 调试信息
-        } else {
-            console.error('未找到标签页:', tabName + '-tab'); // 错误信息
-        }
-        
-        return false; // 阻止链接默认行为
-    }
-
-    // 探索我们的旅程按钮功能
-    function learnMore() {
-        console.log('learnMore 函数被调用'); // 调试信息
-        showTab('about');
-        
-        // 确保滚动到标签页容器
-        setTimeout(() => {
-            const tabContainer = document.querySelector('.tab-container');
-            if (tabContainer) {
-                tabContainer.scrollIntoView({
+    <script>
+        // 平滑滚动函数
+        function smoothScroll(targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
             }
-        }, 100);
-    }
+        }
 
-    // 页面加载后设置所有事件
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('页面加载完成，初始化事件'); // 调试信息
-        
-        // 为首页链接添加平滑滚动
-        const homeLink = document.querySelector('a[href="#home"]');
-        if (homeLink) {
-            homeLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                smoothScroll('home');
+        // 显示指定标签页
+        function showTab(tabName) {
+            console.log('切换到标签页:', tabName);
+            
+            // 隐藏所有标签页
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => {
+                tab.classList.remove('active');
             });
+            
+            // 显示选中的标签页
+            const activeTab = document.getElementById(tabName + '-tab');
+            if (activeTab) {
+                activeTab.classList.add('active');
+                console.log('已激活标签页:', activeTab.id);
+            } else {
+                console.error('未找到标签页:', tabName + '-tab');
+            }
+            // 滚动到标签页容器
+            setTimeout(() => {
+                const tabContainer = document.querySelector('.tab-container');
+                if (tabContainer) {
+                    tabContainer.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }, 100);
+            
+            return false;
         }
-        
-        // 为联系我链接添加平滑滚动
-        const contactLink = document.querySelector('a[href="#contact"]');
-        if (contactLink) {
-            contactLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                smoothScroll('contact');
-            });
+
+        // 探索我们的旅程按钮功能
+        function learnMore() {
+            console.log('learnMore 函数被调用');
+            showTab('about');
         }
-        
-        // 为关于我们团队链接添加点击事件
-        const aboutLinks = document.querySelectorAll('a[onclick*="about"]');
-        aboutLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                showTab('about');
-                
-                // 确保滚动到标签页容器
-                setTimeout(() => {
-                    const tabContainer = document.querySelector('.tab-container');
-                    if (tabContainer) {
-                        tabContainer.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+
+        // 页面加载后设置所有事件
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('页面加载完成，初始化事件');
+            
+            // 为首页链接添加平滑滚动
+            const homeLink = document.querySelector('a[href="#home"]');
+            if (homeLink) {
+                homeLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    smoothScroll('home');
+                });
+            }
+            
+            // 为所有标签页链接添加点击事件
+            const tabLinks = document.querySelectorAll('a[onclick*="showTab"]');
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const onclickAttr = this.getAttribute('onclick');
+                    const tabNameMatch = onclickAttr.match(/showTab\('([^']+)'\)/);
+                    if (tabNameMatch && tabNameMatch[1]) {
+                        showTab(tabNameMatch[1]);
                     }
-                }, 100);
+                });
             });
+            
+            // 默认显示关于我们团队标签页
+            showTab('about');
         });
-        
-        // 为作品集链接添加点击事件
-        const portfolioLinks = document.querySelectorAll('a[onclick*="portfolio"]');
-        portfolioLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                showTab('portfolio');
-                
-                // 确保滚动到标签页容器
-                setTimeout(() => {
-                    const tabContainer = document.querySelector('.tab-container');
-                    if (tabContainer) {
-                        tabContainer.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }, 100);
-            });
-        });
-        
-        // 默认显示关于我们团队标签页
-        showTab('about');
-    });
-</script>
+    </script>
+</body>
+</html>
+   
