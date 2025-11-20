@@ -10,6 +10,8 @@ body {
     line-height: 1.6;
     color: #333;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding-top: 80px; /* 为固定导航栏预留空间 */
+    min-height: 100vh;
 }
 
 /* 导航栏 */
@@ -20,6 +22,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+    backdrop-filter: blur(10px);
 }
 
 nav {
@@ -33,6 +36,7 @@ nav {
 
 .logo h2 {
     color: #3366cc;
+    font-size: 1.5rem;
 }
 
 .nav-links {
@@ -45,18 +49,21 @@ nav {
     text-decoration: none;
     color: #333;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
 }
 
 .nav-links a:hover {
     color: #667eea;
     transform: translateY(-2px);
+    background: rgba(102, 126, 234, 0.1);
 }
 
 .nav-links a.active {
     color: #667eea;
     font-weight: bold;
-    border-bottom: 2px solid #667eea;
+    background: rgba(102, 126, 234, 0.15);
 }
 
 /* 英雄区域 */
@@ -67,39 +74,47 @@ nav {
     justify-content: center;
     text-align: center;
     color: white;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('static/images/hero-bg.jpg') center/cover;
+    position: relative;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    animation: fadeInUp 1s ease;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease 0.2s both;
 }
 
 .cta-button {
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    background: #ff6b6b;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #ff6b6b, #ff5252);
     color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: transform 0.3s, background 0.3s;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    animation: fadeInUp 1s ease 0.4s both;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
 }
 
 .cta-button:hover {
-    transform: translateY(-2px);
-    background: #ff5252;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
 }
 
 /* 主内容区域 */
 main {
-    margin-top: 80px;
+    margin-top: 0;
 }
 
 /* 标签页容器 */
@@ -118,8 +133,8 @@ main {
     background: white;
     margin: 2rem auto;
     padding: 5rem 5%;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
 }
 
@@ -127,224 +142,31 @@ main {
     text-align: center;
     margin-bottom: 3rem;
     color: #3366cc;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    position: relative;
 }
 
-.journey-content {
-    padding: 0 5%;
+.journey h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 2px;
 }
 
-.journey-placeholder {
-    text-align: center;
-    padding: 3rem;
-}
-
-.journey-icon {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-}
-
-.journey-placeholder h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #3366cc;
-}
-
-.journey-placeholder p {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: #555;
-}
-
-/* 关于我们部分 */
-.about {
-    background: white;
-    margin: 2rem auto;
-    padding: 5rem 5%;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
-}
-
-.about h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #3366cc;
-    font-size: 2.5rem;
-}
-
-.about-content {
-    padding: 0 5%;
-}
-
-.about-text p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-}
-/* 作品集/视频部分 */
-.gallery {
-    background: white;
-    margin: 2rem auto;
-    padding: 5rem 5%;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
-}
-
-.gallery h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #3366cc;
-    font-size: 2.5rem;
-}
-
-/* 视频容器样式 */
-.video-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 400px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 15px;
-    margin: 2rem 0;
-}
-
-.video-placeholder {
-    text-align: center;
-    color: white;
-    padding: 3rem;
-}
-
-.video-icon {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-}
-
-.video-placeholder h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.video-placeholder p {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    opacity: 0.9;
-}
-
-/* 联系我部分 */
-.contact {
-    background: white;
-    margin: 2rem auto;
-    padding: 5rem 5%;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
-}
-
-.contact h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #3366cc;
-    font-size: 2.5rem;
-}
-
-.contact-content {
-    padding: 0 5%;
-}
-
-.contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.contact-item {
-    background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.contact-item h3 {
-    color: #3366cc;
-    margin-bottom: 1rem;
-}
-
-.contact-item p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    color: #555;
-}
-
-.contact-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #28a745;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    transition: all 0.3s;
-}
-
-.contact-button:hover {
-    background: #218838;
-    transform: translateY(-2px);
-}
-
-/* 页脚 */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 2rem;
-    margin-top: 4rem;
-}
-
-/* 动画效果 */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .nav-links {
-        gap: 1rem;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    nav {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .contact-info {
-        grid-template-columns: 1fr;
-    }
-    
-    .about, .gallery, .contact, .journey {
-        padding: 3rem 5%;
-        margin: 1rem auto;
-    }
-}
 /* 旅程介绍 */
 .journey-intro {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     color: #666;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* 时间轴容器 */
@@ -357,11 +179,17 @@ footer {
 /* 年份标题 */
 .timeline-year {
     background: white;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     overflow: hidden;
     transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.timeline-year:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
 }
 
 .timeline-year h3 {
@@ -374,11 +202,16 @@ footer {
     justify-content: space-between;
     align-items: center;
     font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.timeline-year h3:hover {
+    background: linear-gradient(135deg, #5a6fd8, #6a4190);
 }
 
 .timeline-year h3::after {
     content: '▼';
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     transition: transform 0.3s ease;
 }
 
@@ -389,7 +222,7 @@ footer {
 /* 时间轴内容 */
 .timeline-content {
     display: none;
-    padding: 2rem;
+    padding: 2.5rem;
 }
 
 .timeline-year.active .timeline-content {
@@ -413,6 +246,7 @@ footer {
     display: flex;
     margin-bottom: 3rem;
     position: relative;
+    align-items: flex-start;
 }
 
 .timeline-item:last-child {
@@ -420,32 +254,36 @@ footer {
 }
 
 .timeline-date {
-    flex: 0 0 120px;
+    flex: 0 0 140px;
     font-weight: bold;
     color: #667eea;
     padding-right: 2rem;
     text-align: right;
+    font-size: 1.1rem;
+    padding-top: 0.3rem;
 }
 
 .timeline-dot {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     background: #667eea;
     border-radius: 50%;
     position: absolute;
-    left: 120px;
-    top: 5px;
+    left: 140px;
+    top: 8px;
     z-index: 2;
+    border: 4px solid white;
+    box-shadow: 0 0 0 3px #667eea;
 }
 
 .timeline-dot::before {
     content: '';
     position: absolute;
-    width: 2px;
+    width: 3px;
     height: calc(100% + 3rem);
-    background: #e0e0e0;
+    background: linear-gradient(to bottom, #667eea, #764ba2);
     left: 50%;
-    top: 16px;
+    top: 20px;
     transform: translateX(-50%);
 }
 
@@ -460,123 +298,329 @@ footer {
 
 .timeline-text h4 {
     color: #333;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 .timeline-text p {
     color: #666;
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 0;
+    font-size: 1.05rem;
 }
 
 .timeline-image {
-    flex: 0 0 200px;
+    flex: 0 0 220px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
 .image-placeholder {
-    width: 150px;
-    height: 100px;
-    background: #f8f9fa;
-    border: 2px dashed #ddd;
-    border-radius: 8px;
+    width: 180px;
+    height: 120px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px dashed #dee2e6;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #999;
-    font-size: 0.9rem;
+    color: #6c757d;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .image-placeholder {
+    border-color: #667eea;
+    color: #667eea;
+    transform: scale(1.05);
 }
 
 /* 图片展示部分 */
 .gallery-section {
     background: white;
-    border-radius: 15px;
-    padding: 3rem;
-    margin: 2rem auto;
+    border-radius: 20px;
+    padding: 4rem 3rem;
+    margin: 3rem auto;
     max-width: 1200px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .gallery-section h3 {
     text-align: center;
     color: #3366cc;
-    margin-bottom: 2rem;
-    font-size: 2rem;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    position: relative;
+}
+
+.gallery-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 2px;
 }
 
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
 }
 
 .photo-item {
     text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .photo-placeholder {
     width: 100%;
-    height: 150px;
+    height: 200px;
     background: linear-gradient(135deg, #667eea, #764ba2);
-    border-radius: 10px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease;
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
 }
 
 .photo-item:hover .photo-placeholder {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
 }
 
 .photo-item p {
-    color: #666;
-    font-weight: 500;
+    color: #555;
+    font-weight: 600;
     margin: 0;
+    font-size: 1.1rem;
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .timeline-item {
-        flex-direction: column;
-    }
-    
-    .timeline-date {
-        flex: none;
-        text-align: left;
-        padding-right: 0;
-        margin-bottom: 1rem;
-    }
-    
-    .timeline-dot {
-        display: none;
-    }
-    
-    .timeline-text {
-        padding: 0;
-        margin-bottom: 1rem;
-    }
-    
-    .timeline-image {
-        flex: none;
-        justify-content: flex-start;
-    }
-    
-    .photo-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 1rem;
-    }
-    
-    .gallery-section {
-        padding: 2rem 1rem;
-    }
+/* 关于我们部分 */
+.about {
+    background: white;
+    margin: 2rem auto;
+    padding: 5rem 5%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
 }
+
+.about h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #3366cc;
+    font-size: 2.8rem;
+    position: relative;
+}
+
+.about h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+.about-content {
+    padding: 0 5%;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 作品集/视频部分 */
+.gallery {
+    background: white;
+    margin: 2rem auto;
+    padding: 5rem 5%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+}
+
+.gallery h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #3366cc;
+    font-size: 2.8rem;
+    position: relative;
+}
+
+.gallery h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+/* 视频容器样式 */
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    margin: 3rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.video-placeholder {
+    text-align: center;
+    color: white;
+    padding: 4rem;
+}
+
+.video-icon {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.video-placeholder h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.video-placeholder p {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    opacity: 0.9;
+}
+
+/* 联系我部分 */
+.contact {
+    background: white;
+    margin: 2rem auto;
+    padding: 5rem 5%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #3366cc;
+    font-size: 2.8rem;
+    position: relative;
+}
+
+.contact h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+.contact-content {
+    padding: 0 5%;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.contact-item {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+}
+
+.contact-item h3 {
+    color: #3366cc;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.contact-item p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+/* 页脚 */
+footer {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+}
+
+footer p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
 /* 证书模态框样式 */
 .modal {
     display: none;
@@ -594,13 +638,14 @@ footer {
     background-color: white;
     margin: 2% auto;
     padding: 0;
-    border-radius: 15px;
+    border-radius: 20px;
     width: 90%;
     max-width: 1000px;
     max-height: 90vh;
     overflow: auto;
     position: relative;
     animation: slideUp 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes slideUp {
@@ -624,19 +669,20 @@ footer {
     cursor: pointer;
     z-index: 2001;
     background: rgba(255, 255, 255, 0.9);
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .close:hover {
     color: #333;
     background: white;
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(90deg);
 }
 
 .certificate-container {
@@ -652,36 +698,40 @@ footer {
 }
 
 .certificate-info {
-    padding: 2rem;
+    padding: 2.5rem;
 }
 
 .certificate-info h3 {
     color: #3366cc;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
 .certificate-info p {
     color: #666;
-    margin-bottom: 1rem;
-    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    font-size: 1.1rem;
 }
 
 .certificate-details {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin-top: 1rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 1.5rem;
 }
 
 .certificate-details p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     display: flex;
+    align-items: center;
 }
 
 .certificate-details strong {
-    min-width: 100px;
+    min-width: 120px;
     color: #333;
+    font-weight: 600;
 }
 
 /* 为证书展示项添加悬停效果 */
@@ -691,30 +741,195 @@ footer {
 }
 
 .photo-item[onclick]:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
 
 .photo-item[onclick]:hover .photo-placeholder {
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-links a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about, .gallery, .contact, .journey {
+        padding: 3rem 1rem;
+        margin: 1rem auto;
+        border-radius: 15px;
+    }
+    
+    /* 改进时间轴在移动端的显示 */
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 2.5rem;
+    }
+    
+    .timeline-date {
+        flex: none;
+        width: 100%;
+        text-align: left;
+        padding-right: 0;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    
+    .timeline-dot {
+        display: none;
+    }
+    
+    .timeline-text {
+        padding: 0;
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+    
+    .timeline-image {
+        flex: none;
+        justify-content: flex-start;
+        width: 100%;
+    }
+    
+    .image-placeholder {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .gallery-section {
+        padding: 2.5rem 1.5rem;
+        margin: 2rem auto;
+    }
+    
     .modal-content {
         width: 95%;
         margin: 5% auto;
+        border-radius: 15px;
     }
     
     .certificate-info {
-        padding: 1.5rem;
+        padding: 1.8rem;
     }
     
     .certificate-details p {
         flex-direction: column;
+        align-items: flex-start;
     }
     
     .certificate-details strong {
         min-width: auto;
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .contact-item {
+        padding: 2rem 1.5rem;
+    }
+    
+    .video-container {
+        min-height: 400px;
+        margin: 2rem 0;
+    }
+    
+    .video-placeholder {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .video-icon {
+        font-size: 4rem;
+    }
+    
+    .video-placeholder h3 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    
+    .journey h2,
+    .about h2,
+    .gallery h2,
+    .contact h2 {
+        font-size: 2.2rem;
+    }
+    
+    .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
     }
 }

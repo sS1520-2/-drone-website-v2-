@@ -35,99 +35,100 @@
         <!-- 标签页容器 -->
         <div class="tab-container">
             <!-- 探索旅程标签页 -->
-<div id="journey-tab" class="tab-content">
-    <section class="journey">
-        <h2>我们的成长历程</h2>
-        <div class="journey-intro">
-            <p>从零开始，一步步见证我们的成长与蜕变</p>
-        </div>
-        
-        <!-- 时间轴部分 -->
-        <div class="timeline-container">
-            <!-- 2025年时间轴 -->
-            <div class="timeline-year active" onclick="toggleYear('2025')">
-                <h3>2025年</h3>
-                <div class="timeline-content" id="year-2025">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025年6月</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-text">
-                            <h4>梦想的起点</h4>
-                            <p>第一个创始人开始系统学习无人机技术，从基础理论到实操飞行，奠定了坚实的基础。</p>
+            <div id="journey-tab" class="tab-content">
+                <section class="journey">
+                    <h2>我们的成长历程</h2>
+                    <div class="journey-intro">
+                        <p>从零开始，一步步见证我们的成长与蜕变</p>
+                    </div>
+                    
+                    <!-- 时间轴部分 -->
+                    <div class="timeline-container">
+                        <!-- 2025年时间轴 -->
+                        <div class="timeline-year active" onclick="toggleYear('2025')">
+                            <h3>2025年</h3>
+                            <div class="timeline-content" id="year-2025">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2025年6月</div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-text">
+                                        <h4>梦想的起点</h4>
+                                        <p>第一个创始人开始系统学习无人机技术，从基础理论到实操飞行，奠定了坚实的基础。</p>
+                                    </div>
+                                    <div class="timeline-image">
+                                        <div class="image-placeholder">📚 学习照片</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2025年7月</div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-text">
+                                        <h4>首次认证与实战</h4>
+                                        <p>成功取得无人机飞行证书，并参与首次植保作业，积累了宝贵的实战经验。</p>
+                                    </div>
+                                    <div class="timeline-image">
+                                        <div class="image-placeholder">🏆 证书照片</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2025年8月</div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-text">
+                                        <h4>团队初建</h4>
+                                        <p>投身无人机教培行业，培养出第一名机长，这位机长后来成为了团队的第二位创始人。</p>
+                                    </div>
+                                    <div class="timeline-image">
+                                        <div class="image-placeholder">👥 团队照片</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="timeline-image">
-                            <div class="image-placeholder">📚 学习照片</div>
+                        
+                        <!-- 未来年份占位 -->
+                        <div class="timeline-year" onclick="toggleYear('2026')">
+                            <h3>2026年</h3>
+                            <div class="timeline-content" id="year-2026">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">即将更新</div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-text">
+                                        <h4>新的篇章</h4>
+                                        <p>我们的故事还在继续，更多精彩即将呈现...</p>
+                                    </div>
+                                    <div class="timeline-image">
+                                        <div class="image-placeholder">🔮 未来展望</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025年7月</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-text">
-                            <h4>首次认证与实战</h4>
-                            <p>成功取得无人机飞行证书，并参与首次植保作业，积累了宝贵的实战经验。</p>
-                        </div>
-                        <div class="timeline-image">
-                            <div class="image-placeholder">🏆 证书照片</div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025年8月</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-text">
-                            <h4>团队初建</h4>
-                            <p>投身无人机教培行业，培养出第一名机长，这位机长后来成为了团队的第二位创始人。</p>
-                        </div>
-                        <div class="timeline-image">
-                            <div class="image-placeholder">👥 团队照片</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 未来年份占位 -->
-            <div class="timeline-year" onclick="toggleYear('2026')">
-                <h3>2026年</h3>
-                <div class="timeline-content" id="year-2026">
-                    <div class="timeline-item">
-                        <div class="timeline-date">即将更新</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-text">
-                            <h4>新的篇章</h4>
-                            <p>我们的故事还在继续，更多精彩即将呈现...</p>
-                        </div>
-                        <div class="timeline-image">
-                            <div class="image-placeholder">🔮 未来展望</div>
+                    <!-- 图片展示部分 -->
+                    <div class="gallery-section">
+                        <h3>精彩瞬间</h3>
+                        <div class="photo-grid">
+                            <div class="photo-item">
+                                <div class="photo-placeholder">🖼️ 无人机训练</div>
+                                <p>训练日常</p>
+                            </div>
+                            <div class="photo-item">
+                                <div class="photo-placeholder">🖼️ 植保作业</div>
+                                <p>实战应用</p>
+                            </div>
+                            <div class="photo-item">
+                                <div class="photo-placeholder">🖼️ 团队合影</div>
+                                <p>团队建设</p>
+                            </div>
+                            <div class="photo-item" onclick="showCertificate('certificate1')">
+                                <div class="photo-placeholder">🖼️ 证书展示</div>
+                                <p>成果认证</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
-        </div>
-        
-        <!-- 图片展示部分 -->
-        <div class="gallery-section">
-            <h3>精彩瞬间</h3>
-            <div class="photo-grid">
-                <div class="photo-item">
-                    <div class="photo-placeholder">🖼️ 无人机训练</div>
-                    <p>训练日常</p>
-                </div>
-                <div class="photo-item">
-                    <div class="photo-placeholder">🖼️ 植保作业</div>
-                    <p>实战应用</p>
-                </div>
-                <div class="photo-item">
-                    <div class="photo-placeholder">🖼️ 团队合影</div>
-                    <p>团队建设</p>
-<div class="photo-item" onclick="showCertificate('certificate1')">
-    <div class="photo-placeholder">🖼️ 证书展示</div>
-    <p>成果认证</p>
-</div>
-            </div>
-        </div>
-    </section>
-</div>
             
             <!-- 关于我们团队标签页 -->
             <div id="about-tab" class="tab-content">
@@ -177,33 +178,36 @@
                 </section>
             </div>
         </div>
-         </main>
+    </main>
 
     <footer>
         <p>&copy; 2024 恩泰无人机空间. 由 Netlify 强力驱动</p>
     </footer>
-<!-- 证书模态框 -->
-<div id="certificateModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeCertificate()">&times;</span>
-        <div class="certificate-container">
-            <img id="certificateImage" src="" alt="证书">
-            <div class="certificate-info">
-                <h3 id="certificateTitle">证书标题</h3>
-                <p id="certificateDesc">证书描述</p>
-                <div class="certificate-details">
-                    <p><strong>颁发机构：</strong><span id="certificateOrg">机构名称</span></p>
-                    <p><strong>获得时间：</strong><span id="certificateDate">2025年7月</span></p>
-                    <p><strong>证书编号：</strong><span id="certificateNumber">编号信息</span></p>
+
+    <!-- 证书模态框 -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCertificate()">&times;</span>
+            <div class="certificate-container">
+                <img id="certificateImage" src="" alt="证书">
+                <div class="certificate-info">
+                    <h3 id="certificateTitle">证书标题</h3>
+                    <p id="certificateDesc">证书描述</p>
+                    <div class="certificate-details">
+                        <p><strong>颁发机构：</strong><span id="certificateOrg">机构名称</span></p>
+                        <p><strong>获得时间：</strong><span id="certificateDate">2025年7月</span></p>
+                        <p><strong>证书编号：</strong><span id="certificateNumber">编号信息</span></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
     <script>
-    // 在脚本开头添加版本信息
-    const SITE_VERSION = "2.0";
-    console.log("网站版本:", SITE_VERSION);
+        // 在脚本开头添加版本信息
+        const SITE_VERSION = "2.0";
+        console.log("网站版本:", SITE_VERSION);
+
         // 显示指定标签页并隐藏其他所有标签页
         function showTab(tabName) {
             console.log('切换到标签页:', tabName);
@@ -239,6 +243,89 @@
             return false;
         }
 
+        // 证书数据
+        const certificates = {
+            certificate1: {
+                image: "static/images/certificate1.jpg",
+                title: "无人机飞行证书",
+                description: "通过系统学习和严格考核，成功获得无人机飞行资格证书，标志着我们在无人机操作领域的专业能力。",
+                organization: "中国航空器拥有者及驾驶员协会",
+                date: "2025年8月7日",
+                number: "UAV-20250807-001"
+            },
+            certificate2: {
+                image: "static/images/certificate2.jpg",
+                title: "植保作业认证",
+                description: "在农业植保领域的专业认证，证明我们具备使用无人机进行精准农业作业的能力。",
+                organization: "农业无人机应用协会",
+                date: "2025年8月20日",
+                number: "AG-UAV-20250820-002"
+            }
+        };
+
+        // 显示证书函数
+        function showCertificate(certId) {
+            const certificate = certificates[certId];
+            if (!certificate) {
+                console.error('证书不存在:', certId);
+                return;
+            }
+            
+            const modal = document.getElementById('certificateModal');
+            const img = document.getElementById('certificateImage');
+            const title = document.getElementById('certificateTitle');
+            const desc = document.getElementById('certificateDesc');
+            const org = document.getElementById('certificateOrg');
+            const date = document.getElementById('certificateDate');
+            const number = document.getElementById('certificateNumber');
+            
+            // 设置证书内容
+            img.src = certificate.image;
+            img.alt = certificate.title;
+            title.textContent = certificate.title;
+            desc.textContent = certificate.description;
+            org.textContent = certificate.organization;
+            date.textContent = certificate.date;
+            number.textContent = certificate.number || '暂无编号';
+            
+            // 显示模态框
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 关闭证书函数
+        function closeCertificate() {
+            const modal = document.getElementById('certificateModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // 时间轴年份切换功能
+        function toggleYear(clickedYear) {
+            console.log('点击年份:', clickedYear);
+            
+            const allYears = document.querySelectorAll('.timeline-year');
+            const clickedElement = document.querySelector(`[onclick="toggleYear('${clickedYear}')"]`);
+            
+            if (!clickedElement) {
+                console.error('未找到点击的年份元素:', clickedYear);
+                return;
+            }
+            
+            const isCurrentlyActive = clickedElement.classList.contains('active');
+            
+            if (isCurrentlyActive) {
+                clickedElement.classList.remove('active');
+                console.log('已收起年份:', clickedYear);
+            } else {
+                allYears.forEach(year => {
+                    year.classList.remove('active');
+                });
+                clickedElement.classList.add('active');
+                console.log('已展开年份:', clickedYear);
+            }
+        }
+
         // 页面加载后初始化
         document.addEventListener('DOMContentLoaded', function() {
             console.log('页面加载完成，初始化标签页系统');
@@ -248,12 +335,10 @@
             if (homeLink) {
                 homeLink.addEventListener('click', function(e) {
                     e.preventDefault();
-                    // 隐藏所有标签页
                     const tabContents = document.querySelectorAll('.tab-content');
                     tabContents.forEach(tab => {
                         tab.style.display = 'none';
                     });
-                    // 滚动到首页
                     document.getElementById('home').scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -279,123 +364,29 @@
             tabContents.forEach(tab => {
                 tab.style.display = 'none';
             });
+            
+            // 默认展开第一个时间轴年份
+            const timelineYears = document.querySelectorAll('.timeline-year');
+            if (timelineYears.length > 0) {
+                timelineYears[0].classList.add('active');
+                console.log('默认展开2025年');
+            }
+            
+            // 点击模态框外部关闭
+            window.onclick = function(event) {
+                const modal = document.getElementById('certificateModal');
+                if (event.target === modal) {
+                    closeCertificate();
+                }
+            }
+            
+            // ESC键关闭
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    closeCertificate();
+                }
+            });
         });
-        // 证书数据
-const certificates = {
-    certificate1: {
-        image: "static/images/certificate1.jpg", // 你的证书图片路径
-        title: "无人机飞行证书",
-        description: "通过系统学习和严格考核，成功获得无人机飞行资格证书，标志着我们在无人机操作领域的专业能力。",
-        organization: "中国航空器拥有者及驾驶员协会",
-        date: "2025年8月7日",
-    },
-    // 可以添加更多证书
-    certificate2: {
-        image: "static/images/certificate2.jpg",
-        title: "植保作业认证",
-        description: "在农业植保领域的专业认证，证明我们具备使用无人机进行精准农业作业的能力。",
-        organization: "农业无人机应用协会",
-        date: "2025年8月20日",
-        number: "AG-UAV-20250820-002"
-    }
-};
-
-// 显示证书函数
-function showCertificate(certId) {
-    const certificate = certificates[certId];
-    if (!certificate) {
-        console.error('证书不存在:', certId);
-        return;
-    }
-    
-    const modal = document.getElementById('certificateModal');
-    const img = document.getElementById('certificateImage');
-    const title = document.getElementById('certificateTitle');
-    const desc = document.getElementById('certificateDesc');
-    const org = document.getElementById('certificateOrg');
-    const date = document.getElementById('certificateDate');
-    const number = document.getElementById('certificateNumber');
-    
-    // 设置证书内容
-    img.src = certificate.image;
-    img.alt = certificate.title;
-    title.textContent = certificate.title;
-    desc.textContent = certificate.description;
-    org.textContent = certificate.organization;
-    date.textContent = certificate.date;
-    number.textContent = certificate.number;
-    
-    // 显示模态框
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // 防止背景滚动
-}
-
-// 关闭证书函数
-function closeCertificate() {
-    const modal = document.getElementById('certificateModal');
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // 恢复滚动
-}
-
-// 点击模态框外部关闭
-window.onclick = function(event) {
-    const modal = document.getElementById('certificateModal');
-    if (event.target === modal) {
-        closeCertificate();
-    }
-}
-
-// ESC键关闭
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeCertificate();
-    }
-});
- // 时间轴年份切换功能 - 修复版
-function toggleYear(clickedYear) {
-    console.log('点击年份:', clickedYear);
-    
-    // 获取所有年份元素
-    const allYears = document.querySelectorAll('.timeline-year');
-    const clickedElement = document.querySelector(`[onclick="toggleYear('${clickedYear}')"]`);
-    
-    if (!clickedElement) {
-        console.error('未找到点击的年份元素:', clickedYear);
-        return;
-    }
-    
-    const isCurrentlyActive = clickedElement.classList.contains('active');
-    
-    console.log('当前状态:', isCurrentlyActive ? '已展开' : '已收起');
-    
-    // 如果点击的年份已经是激活状态，则收起它
-    if (isCurrentlyActive) {
-        clickedElement.classList.remove('active');
-        console.log('已收起年份:', clickedYear);
-    } else {
-        // 如果点击的年份不是激活状态
-        // 先收起所有年份
-        allYears.forEach(year => {
-            year.classList.remove('active');
-        });
-        
-        // 然后展开点击的年份
-        clickedElement.classList.add('active');
-        console.log('已展开年份:', clickedYear);
-    }
-}
-
-// 页面加载时默认展开2025年
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('页面加载完成，初始化时间轴');
-    
-    // 确保时间轴功能正常工作
-    const timelineYears = document.querySelectorAll('.timeline-year');
-    console.log('找到时间轴年份:', timelineYears.length);
-    
-    // 默认展开第一个年份（2025年）
-    if (timelineYears.length > 0) {
-        timelineYears[0].classList.add('active');
-        console.log('默认展开2025年');
-    }
-});
+    </script>
+</body>
+</html>
