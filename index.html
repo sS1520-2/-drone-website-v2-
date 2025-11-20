@@ -287,8 +287,7 @@ const certificates = {
         title: "无人机飞行证书",
         description: "通过系统学习和严格考核，成功获得无人机飞行资格证书，标志着我们在无人机操作领域的专业能力。",
         organization: "中国航空器拥有者及驾驶员协会",
-        date: "2025年7月15日",
-        number: "UAV-20250715-001"
+        date: "2025年8月7日",
     },
     // 可以添加更多证书
     certificate2: {
@@ -351,6 +350,59 @@ document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeCertificate();
     }
+});
+// 时间轴年份切换功能
+function toggleYear(year) {
+    console.log('切换年份:', year); // 调试信息
+    
+    const yearElement = document.querySelector(`[onclick="toggleYear('${year}')"]`);
+    if (!yearElement) {
+        console.error('未找到年份元素:', year);
+        return;
+    }
+    
+    const isActive = yearElement.classList.contains('active');
+    console.log('当前状态:', isActive ? '已展开' : '已收起');
+    
+    // 关闭所有年份
+    document.querySelectorAll('.timeline-year').forEach(el => {
+        el.classList.remove('active');
+    });
+    
+    // 如果点击的年份原本不是激活状态，则激活它
+    if (!isActive) {
+        yearElement.classList.add('active');
+        console.log('已展开年份:', year);
+    }
+}
+
+// 页面加载时默认展开2025年
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('页面加载完成，初始化时间轴');
+    
+    // 确保时间轴功能正常工作
+    const timelineYears = document.querySelectorAll('.timeline-year');
+    console.log('找到时间轴年份:', timelineYears.length);
+    
+    // 默认展开第一个年份（2025年）
+    if (timelineYears.length > 0) {
+        timelineYears[0].classList.add('active');
+        console.log('默认展开2025年');
+    }
+    
+    // 为所有时间轴年份添加点击事件（备用方案）
+    timelineYears.forEach(year => {
+        const originalOnClick = year.getAttribute('onclick');
+        if (originalOnClick) {
+            year.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const yearMatch = originalOnClick.match(/toggleYear\('(\d+)'\)/);
+                if (yearMatch && yearMatch[1]) {
+                    toggleYear(yearMatch[1]);
+                }
+            });
+        }
+    });
 });
     </script>
 </body>
