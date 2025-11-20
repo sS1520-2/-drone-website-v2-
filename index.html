@@ -3,445 +3,449 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>恩泰无人机空间 - 成长历程</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            background-attachment: fixed;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            color: white;
-            padding: 20px;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .timeline-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .timeline-year {
-            margin-bottom: 30px;
-        }
-
-        .year-header {
-            background: linear-gradient(135deg, #1a2a6c, #4a5fc1);
-            color: white;
-            padding: 20px 30px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(26, 42, 108, 0.4);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .year-header:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(26, 42, 108, 0.5);
-        }
-
-        .year-header h2 {
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .year-header h2::before {
-            content: "✈️";
-            margin-right: 15px;
-            font-size: 1.5rem;
-        }
-
-        .year-toggle {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .year-header.active .year-toggle {
-            transform: rotate(180deg);
-        }
-
-        .timeline-content {
-            display: none;
-            padding: 20px;
-        }
-
-        .year-header.active + .timeline-content {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .timeline-item {
-            display: flex;
-            margin-bottom: 40px;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 10px;
-            width: 16px;
-            height: 16px;
-            background: #4a5fc1;
-            border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 0 0 3px #4a5fc1;
-            z-index: 2;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 26px;
-            width: 2px;
-            height: calc(100% + 24px);
-            background: linear-gradient(to bottom, #4a5fc1, #b21f1f);
-            z-index: 1;
-        }
-
-        .timeline-item:last-child::after {
-            display: none;
-        }
-
-        .timeline-date {
-            flex: 0 0 150px;
-            font-weight: bold;
-            color: #1a2a6c;
-            font-size: 1.1rem;
-            padding-right: 20px;
-            padding-top: 5px;
-        }
-
-        .timeline-content-inner {
-            flex: 1;
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #4a5fc1;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover .timeline-content-inner {
-            transform: translateX(5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .timeline-content-inner h3 {
-            color: #1a2a6c;
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .timeline-content-inner h3::before {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #fdbb2d;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .timeline-content-inner p {
-            color: #555;
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        .status {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .status.completed {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
-
-        .status.in-progress {
-            background: #fff3e0;
-            color: #ef6c00;
-        }
-
-        .status.future {
-            background: #f3e5f5;
-            color: #7b1fa2;
-        }
-
-        .milestone {
-            display: inline-flex;
-            align-items: center;
-            background: linear-gradient(135deg, #1a2a6c, #4a5fc1);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-top: 15px;
-            box-shadow: 0 3px 10px rgba(26, 42, 108, 0.3);
-        }
-
-        .milestone::before {
-            content: '🏆';
-            margin-right: 8px;
-        }
-
-        .future-plans {
-            background: linear-gradient(135deg, #fdbb2d, #b21f1f);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 30px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(253, 187, 45, 0.3);
-        }
-
-        .future-plans h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .future-plans h3::before {
-            content: '🔮';
-            margin-right: 10px;
-        }
-
-        .future-plans p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            color: white;
-            padding: 20px;
-            opacity: 0.8;
-        }
-
-        @media (max-width: 768px) {
-            .timeline-item {
-                flex-direction: column;
-                padding-left: 20px;
-            }
-
-            .timeline-date {
-                flex: none;
-                margin-bottom: 10px;
-                padding-right: 0;
-            }
-
-            .timeline-item::before {
-                left: 0;
-                top: 5px;
-            }
-
-            .timeline-item::after {
-                left: 7px;
-                top: 21px;
-            }
-
-            h1 {
-                font-size: 2.2rem;
-            }
-
-            .timeline-container {
-                padding: 25px;
-            }
-        }
-    </style>
+    <title>无人机飞行员 - 空中视野的创造者</title>
+    <link rel="stylesheet" href="static/css/style.css?v=2.0">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>恩泰无人机空间</h1>
-            <p class="subtitle">我们的成长历程 - 从梦想到现实</p>
-        </header>
+    <header>
+        <nav>
+            <div class="logo">
+                <h2>✈️ 恩泰无人机空间</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#" onclick="showTab('about'); return false;">关于我们团队</a></li>
+                <li><a href="#" onclick="showTab('portfolio'); return false;">作品集</a></li>
+                <li><a href="#" onclick="showTab('contact'); return false;">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="timeline-container">
-            <!-- 2025年时间轴 -->
-            <div class="timeline-year">
-                <div class="year-header active">
-                    <h2>2025年 - 梦想启航</h2>
-                    <span class="year-toggle">▼</span>
-                </div>
-                <div class="timeline-content">
-                    <!-- 6月 -->
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025年6月</div>
-                        <div class="timeline-content-inner">
-                            <h3>梦想的起点</h3>
-                            <p>第一个创始人开始系统学习无人机技术，从基础理论到实操飞行，奠定了坚实的基础。每天坚持学习8小时，掌握了无人机飞行原理、航拍技巧和基本维修知识。</p>
-                            <span class="status completed">已完成</span>
+    <main>
+        <!-- 首页/英雄区域 -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>探索无限空中视野</h1>
+                <p>天空不是极限，而是新的起点</p>
+                <p>用代码编织梦想，用无人机捕捉视角</p>
+                <button class="cta-button" onclick="showTab('journey')">探索我们的旅程</button>
+            </div>
+        </section>
+
+        <!-- 标签页容器 -->
+        <div class="tab-container">
+            <!-- 探索旅程标签页 -->
+            <div id="journey-tab" class="tab-content">
+                <section class="journey">
+                    <h2>我们的成长历程</h2>
+                    <div class="journey-intro">
+                        <p>从零开始，一步步见证我们的成长与蜕变</p>
+                    </div>
+                    
+                    <!-- 时间轴部分 -->
+                    <div class="timeline-container">
+                        <!-- 2025年时间轴 -->
+                        <div class="timeline-year active" onclick="toggleYear('2025')">
+                            <h3>2025年 - 梦想启航</h3>
+                            <div class="timeline-content" id="year-2025">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2025年6月</div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-text">
+                                        <h4>梦想的起点</h4>
+                                        <p>第一个创始人开始系统学习无人机技术，从基础理论到实操飞行，奠定了坚实的基础。</p>
+                                        <span class="timeline-status completed">已完成</span>
+                                    </div>
+                                    <div class="timeline-image">
+                                        <div class="image-placeholder">📚 学习照片</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2025年7月</div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-text">
+                                        <h4>首次认证与实战</h4>
+                                        <p>成功取得无人机飞行证书，并参与首次植保作业，积累了宝贵的实战经验。</p>
+                                        <span class="timeline-status completed">已完成</span>
+                                    </div>
+                                    <div class="timeline-image">
+                                        <div class="image-placeholder">🏆 证书照片</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2025年8月</div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-text">
+                                        <h4>团队初建</h4>
+                                        <p>投身无人机教培行业，培养出第一名机长，这位机长后来成为了团队的第二位创始人。</p>
+                                        <span class="timeline-status completed">已完成</span>
+                                    </div>
+                                    <div class="timeline-image">
+                                        <div class="image-placeholder">👥 团队照片</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 9月事件 -->
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2025年9月</div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-text">
+                                        <h4>公司正式落地</h4>
+                                        <p>恩泰无人机空间正式落户瑞昌蒙牛乳业湓城东路60号，拥有了第一个正式的办公和培训场地。</p>
+                                        <span class="timeline-status completed">已完成</span>
+                                    </div>
+                                    <div class="timeline-image">
+                                        <div class="image-placeholder">🏢 公司照片</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 10月事件 -->
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2025年10月</div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-text">
+                                        <h4>第三位创始人加入</h4>
+                                        <p>迎来了团队的第三位创始人，目前正在积极准备无人机证书考试，为团队注入新鲜血液。</p>
+                                        <span class="timeline-status in-progress">进行中</span>
+                                    </div>
+                                    <div class="timeline-image">
+                                        <div class="image-placeholder">👨‍💼 新成员</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 11月事件 -->
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2025年11月</div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-text">
+                                        <h4>期待考试顺利</h4>
+                                        <p>希望第三位创始人能顺利通过无人机证书考试，为团队增添更多专业力量。</p>
+                                        <span class="timeline-status planned">计划中</span>
+                                    </div>
+                                    <div class="timeline-image">
+                                        <div class="image-placeholder">📝 考试准备</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 新增的12月事件 -->
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2025年12月</div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-text">
+                                        <h4>展望未来</h4>
+                                        <p>希望团队一切安好，业务稳步发展，为2026年的新征程做好充分准备。</p>
+                                        <span class="timeline-status planned">展望中</span>
+                                    </div>
+                                    <div class="timeline-image">
+                                        <div class="image-placeholder">🔮 未来展望</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 未来年份占位 -->
+                        <div class="timeline-year" onclick="toggleYear('2026')">
+                            <h3>2026年 - 展翅高飞</h3>
+                            <div class="timeline-content" id="year-2026">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">即将更新</div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-text">
+                                        <h4>新的篇章</h4>
+                                        <p>我们的故事还在继续，更多精彩即将呈现...</p>
+                                        <span class="timeline-status future">敬请期待</span>
+                                    </div>
+                                    <div class="timeline-image">
+                                        <div class="image-placeholder">🚀 新征程</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <!-- 7月 -->
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025年7月</div>
-                        <div class="timeline-content-inner">
-                            <h3>首次认证与实战</h3>
-                            <p>成功取得无人机飞行证书，并参与首次植保作业，积累了宝贵的实战经验。在农田作业中应用所学知识，完成了50亩农田的精准喷洒任务。</p>
-                            <span class="status completed">已完成</span>
-                            <div class="milestone">首张飞行证书</div>
+                    <!-- 图片展示部分 -->
+                    <div class="gallery-section">
+                        <h3>精彩瞬间</h3>
+                        <div class="photo-grid">
+                            <div class="photo-item">
+                                <div class="photo-placeholder">🖼️ 无人机训练</div>
+                                <p>训练日常</p>
+                            </div>
+                            <div class="photo-item">
+                                <div class="photo-placeholder">🖼️ 植保作业</div>
+                                <p>实战应用</p>
+                            </div>
+                            <div class="photo-item">
+                                <div class="photo-placeholder">🖼️ 团队合影</div>
+                                <p>团队建设</p>
+                            </div>
+                            <div class="photo-item" onclick="showCertificate('certificate1')">
+                                <div class="photo-placeholder">🖼️ 证书展示</div>
+                                <p>成果认证</p>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- 8月 -->
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025年8月</div>
-                        <div class="timeline-content-inner">
-                            <h3>团队初建</h3>
-                            <p>投身无人机教培行业，培养出第一名机长，这位机长后来成为了团队的第二位创始人。共同制定了团队发展计划和未来愿景。</p>
-                            <span class="status completed">已完成</span>
-                            <div class="milestone">第二位创始人加入</div>
-                        </div>
-                    </div>
-                    
-                    <!-- 9月 -->
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025年9月</div>
-                        <div class="timeline-content-inner">
-                            <h3>公司正式落地</h3>
-                            <p>恩泰无人机空间正式落户瑞昌蒙牛乳业湓城东路60号，拥有了第一个正式的办公和培训场地。开始了正规化的无人机培训和服务业务。</p>
-                            <span class="status completed">已完成</span>
-                            <div class="milestone">首个实体办公地点</div>
-                        </div>
-                    </div>
-                    
-                    <!-- 10月 -->
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025年10月</div>
-                        <div class="timeline-content-inner">
-                            <h3>第三位创始人加入</h3>
-                            <p>迎来了团队的第三位创始人，目前正在积极准备无人机证书考试。新成员的加入为团队带来了更多专业知识和创新思路。</p>
-                            <span class="status in-progress">进行中</span>
-                        </div>
-                    </div>
-                    
-                    <!-- 11月 -->
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025年11月</div>
-                        <div class="timeline-content-inner">
-                            <h3>期待考试顺利</h3>
-                            <p>希望第三位创始人能顺利通过无人机证书考试，为团队增添更多专业力量。同时计划扩展业务范围，增加航拍和测绘服务。</p>
-                            <span class="status future">计划中</span>
-                        </div>
-                    </div>
-                    
-                    <!-- 12月 -->
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025年12月</div>
-                        <div class="timeline-content-inner">
-                            <h3>展望未来</h3>
-                            <p>希望团队一切安好，业务稳步发展。计划在年底前完成首批学员培训，并为2026年的业务扩展做好准备。</p>
-                            <span class="status future">计划中</span>
-                        </div>
-                    </div>
-                    
-                    <!-- 未来展望 -->
-                    <div class="future-plans">
-                        <h3>2026年展望</h3>
-                        <p>我们计划在2026年扩大团队规模，拓展更多无人机应用领域，包括农业植保、电力巡检、环境监测等，让恩泰无人机空间成为行业内的知名品牌。</p>
-                    </div>
-                </div>
+                </section>
             </div>
             
-            <!-- 2026年时间轴 -->
-            <div class="timeline-year">
-                <div class="year-header">
-                    <h2>2026年 - 展翅高飞</h2>
-                    <span class="year-toggle">▼</span>
-                </div>
-                <div class="timeline-content">
-                    <div class="timeline-item">
-                        <div class="timeline-date">即将更新</div>
-                        <div class="timeline-content-inner">
-                            <h3>新的篇章</h3>
-                            <p>我们的故事还在继续，更多精彩即将呈现。2026年将是恩泰无人机空间快速发展的一年，我们将探索更多无人机应用场景，开拓更广阔的市场。</p>
-                            <span class="status future">敬请期待</span>
+            <!-- 关于我们团队标签页 -->
+            <div id="about-tab" class="tab-content">
+                <section class="about">
+                    <h2>关于我们团队</h2>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p>一群热爱无人机的少年，怀揣着对天空的向往和对技术的热情，等待着你加入我们的飞行之旅。</p>
+                            <p>在这里，我们分享飞行经验、技术心得，共同探索无人机的无限可能。</p>
                         </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- 作品集标签页 -->
+            <div id="portfolio-tab" class="tab-content">
+                <section class="gallery">
+                    <h2>精彩瞬间</h2>
+                    <div class="video-container">
+                        <div class="video-placeholder">
+                            <div class="video-icon">🎬</div>
+                            <h3>精彩视频即将上线</h3>
+                            <p>我们正在准备最震撼的无人机航拍视频</p>
+                            <p>敬请期待！</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- 联系我标签页 -->
+            <div id="contact-tab" class="tab-content">
+                <section class="contact">
+                    <h2>联系我</h2>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <h3>📞 电话联系</h3>
+                                <p>13870886333</p>
+                                <a href="tel:13870886333" class="contact-button">立即拨打</a>
+                            </div>
+                            <div class="contact-item">
+                                <h3>💼 合作方向</h3>
+                                <p>无人机航拍 · 编程教学 · 项目开发</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 恩泰无人机空间. 由 Netlify 强力驱动</p>
+    </footer>
+
+    <!-- 证书模态框 -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCertificate()">&times;</span>
+            <div class="certificate-container">
+                <img id="certificateImage" src="" alt="证书">
+                <div class="certificate-info">
+                    <h3 id="certificateTitle">证书标题</h3>
+                    <p id="certificateDesc">证书描述</p>
+                    <div class="certificate-details">
+                        <p><strong>颁发机构：</strong><span id="certificateOrg">机构名称</span></p>
+                        <p><strong>获得时间：</strong><span id="certificateDate">2025年7月</span></p>
+                        <p><strong>证书编号：</strong><span id="certificateNumber">编号信息</span></p>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <footer>
-            <p>© 2025 恩泰无人机空间 - 记录我们的每一步成长</p>
-        </footer>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const yearHeaders = document.querySelectorAll('.year-header');
+        // 在脚本开头添加版本信息
+        const SITE_VERSION = "2.0";
+        console.log("网站版本:", SITE_VERSION);
+
+        // 显示指定标签页并隐藏其他所有标签页
+        function showTab(tabName) {
+            console.log('切换到标签页:', tabName);
             
-            yearHeaders.forEach(header => {
-                header.addEventListener('click', function() {
-                    this.classList.toggle('active');
+            // 获取所有标签页
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // 隐藏所有标签页
+            tabContents.forEach(tab => {
+                tab.style.display = 'none';
+            });
+            
+            // 显示选中的标签页
+            const activeTab = document.getElementById(tabName + '-tab');
+            if (activeTab) {
+                activeTab.style.display = 'block';
+                console.log('已激活标签页:', activeTab.id);
+                
+                // 滚动到标签页容器
+                setTimeout(() => {
+                    const tabContainer = document.querySelector('.tab-container');
+                    if (tabContainer) {
+                        tabContainer.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }, 100);
+            } else {
+                console.error('未找到标签页:', tabName + '-tab');
+            }
+            
+            return false;
+        }
+
+        // 证书数据
+        const certificates = {
+            certificate1: {
+                image: "static/images/certificate1.jpg",
+                title: "无人机飞行证书",
+                description: "通过系统学习和严格考核，成功获得无人机飞行资格证书，标志着我们在无人机操作领域的专业能力。",
+                organization: "中国航空器拥有者及驾驶员协会",
+                date: "2025年8月7日",
+                number: "UAV-20250807-001"
+            },
+            certificate2: {
+                image: "static/images/certificate2.jpg",
+                title: "植保作业认证",
+                description: "在农业植保领域的专业认证，证明我们具备使用无人机进行精准农业作业的能力。",
+                organization: "农业无人机应用协会",
+                date: "2025年8月20日",
+                number: "AG-UAV-20250820-002"
+            }
+        };
+
+        // 显示证书函数
+        function showCertificate(certId) {
+            const certificate = certificates[certId];
+            if (!certificate) {
+                console.error('证书不存在:', certId);
+                return;
+            }
+            
+            const modal = document.getElementById('certificateModal');
+            const img = document.getElementById('certificateImage');
+            const title = document.getElementById('certificateTitle');
+            const desc = document.getElementById('certificateDesc');
+            const org = document.getElementById('certificateOrg');
+            const date = document.getElementById('certificateDate');
+            const number = document.getElementById('certificateNumber');
+            
+            // 设置证书内容
+            img.src = certificate.image;
+            img.alt = certificate.title;
+            title.textContent = certificate.title;
+            desc.textContent = certificate.description;
+            org.textContent = certificate.organization;
+            date.textContent = certificate.date;
+            number.textContent = certificate.number || '暂无编号';
+            
+            // 显示模态框
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 关闭证书函数
+        function closeCertificate() {
+            const modal = document.getElementById('certificateModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // 时间轴年份切换功能
+        function toggleYear(clickedYear) {
+            console.log('点击年份:', clickedYear);
+            
+            const allYears = document.querySelectorAll('.timeline-year');
+            const clickedElement = document.querySelector(`[onclick="toggleYear('${clickedYear}')"]`);
+            
+            if (!clickedElement) {
+                console.error('未找到点击的年份元素:', clickedYear);
+                return;
+            }
+            
+            const isCurrentlyActive = clickedElement.classList.contains('active');
+            
+            if (isCurrentlyActive) {
+                clickedElement.classList.remove('active');
+                console.log('已收起年份:', clickedYear);
+            } else {
+                allYears.forEach(year => {
+                    year.classList.remove('active');
+                });
+                clickedElement.classList.add('active');
+                console.log('已展开年份:', clickedYear);
+            }
+        }
+
+        // 页面加载后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('页面加载完成，初始化标签页系统');
+            
+            // 为首页链接添加平滑滚动
+            const homeLink = document.querySelector('a[href="#home"]');
+            if (homeLink) {
+                homeLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabContents = document.querySelectorAll('.tab-content');
+                    tabContents.forEach(tab => {
+                        tab.style.display = 'none';
+                    });
+                    document.getElementById('home').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            }
+            
+            // 为所有标签页链接添加点击事件
+            const tabLinks = document.querySelectorAll('a[onclick*="showTab"]');
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const onclickAttr = this.getAttribute('onclick');
+                    const tabNameMatch = onclickAttr.match(/showTab\('([^']+)'\)/);
+                    if (tabNameMatch && tabNameMatch[1]) {
+                        showTab(tabNameMatch[1]);
+                    }
                 });
             });
             
-            // 默认展开第一个年份
-            if (yearHeaders.length > 0) {
-                yearHeaders[0].classList.add('active');
+            // 初始状态：隐藏所有标签页
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => {
+                tab.style.display = 'none';
+            });
+            
+            // 默认展开第一个时间轴年份
+            const timelineYears = document.querySelectorAll('.timeline-year');
+            if (timelineYears.length > 0) {
+                timelineYears[0].classList.add('active');
+                console.log('默认展开2025年');
             }
+            
+            // 点击模态框外部关闭
+            window.onclick = function(event) {
+                const modal = document.getElementById('certificateModal');
+                if (event.target === modal) {
+                    closeCertificate();
+                }
+            }
+            
+            // ESC键关闭
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    closeCertificate();
+                }
+            });
         });
     </script>
 </body>
