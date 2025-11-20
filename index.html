@@ -35,19 +35,100 @@
         <!-- 标签页容器 -->
         <div class="tab-container">
             <!-- 探索旅程标签页 -->
-            <div id="journey-tab" class="tab-content">
-                <section class="journey">
-                    <h2>我们的旅程</h2>
-                    <div class="journey-content">
-                        <div class="journey-placeholder">
-                            <div class="journey-icon">🚀</div>
-                            <h3>旅程记录即将上线</h3>
-                            <p>我们正在整理精彩的旅程故事和视频</p>
-                            <p>敬请期待！</p>
+<div id="journey-tab" class="tab-content">
+    <section class="journey">
+        <h2>我们的成长历程</h2>
+        <div class="journey-intro">
+            <p>从零开始，一步步见证我们的成长与蜕变</p>
+        </div>
+        
+        <!-- 时间轴部分 -->
+        <div class="timeline-container">
+            <!-- 2025年时间轴 -->
+            <div class="timeline-year active" onclick="toggleYear('2025')">
+                <h3>2025年</h3>
+                <div class="timeline-content" id="year-2025">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2025年6月</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-text">
+                            <h4>梦想的起点</h4>
+                            <p>第一个创始人开始系统学习无人机技术，从基础理论到实操飞行，奠定了坚实的基础。</p>
+                        </div>
+                        <div class="timeline-image">
+                            <div class="image-placeholder">📚 学习照片</div>
                         </div>
                     </div>
-                </section>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">2025年7月</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-text">
+                            <h4>首次认证与实战</h4>
+                            <p>成功取得无人机飞行证书，并参与首次植保作业，积累了宝贵的实战经验。</p>
+                        </div>
+                        <div class="timeline-image">
+                            <div class="image-placeholder">🏆 证书照片</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">2025年8月</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-text">
+                            <h4>团队初建</h4>
+                            <p>投身无人机教培行业，培养出第一名机长，这位机长后来成为了团队的第二位创始人。</p>
+                        </div>
+                        <div class="timeline-image">
+                            <div class="image-placeholder">👥 团队照片</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
+            <!-- 未来年份占位 -->
+            <div class="timeline-year" onclick="toggleYear('2026')">
+                <h3>2026年</h3>
+                <div class="timeline-content" id="year-2026">
+                    <div class="timeline-item">
+                        <div class="timeline-date">即将更新</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-text">
+                            <h4>新的篇章</h4>
+                            <p>我们的故事还在继续，更多精彩即将呈现...</p>
+                        </div>
+                        <div class="timeline-image">
+                            <div class="image-placeholder">🔮 未来展望</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 图片展示部分 -->
+        <div class="gallery-section">
+            <h3>精彩瞬间</h3>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <div class="photo-placeholder">🖼️ 无人机训练</div>
+                    <p>训练日常</p>
+                </div>
+                <div class="photo-item">
+                    <div class="photo-placeholder">🖼️ 植保作业</div>
+                    <p>实战应用</p>
+                </div>
+                <div class="photo-item">
+                    <div class="photo-placeholder">🖼️ 团队合影</div>
+                    <p>团队建设</p>
+                </div>
+                <div class="photo-item">
+                    <div class="photo-placeholder">🖼️ 证书展示</div>
+                    <p>成果认证</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
             
             <!-- 关于我们团队标签页 -->
             <div id="about-tab" class="tab-content">
@@ -183,6 +264,31 @@
                 tab.style.display = 'none';
             });
         });
+        // 时间轴年份切换功能
+function toggleYear(year) {
+    const yearElement = document.querySelector(`.timeline-year:nth-child(${year === '2025' ? 1 : 2})`);
+    const isActive = yearElement.classList.contains('active');
+    
+    // 关闭所有年份
+    document.querySelectorAll('.timeline-year').forEach(el => {
+        el.classList.remove('active');
+    });
+    
+    // 如果点击的年份原本不是激活状态，则激活它
+    if (!isActive) {
+        yearElement.classList.add('active');
+    }
+}
+
+// 页面加载时默认展开2025年
+document.addEventListener('DOMContentLoaded', function() {
+    // 确保时间轴功能正常工作
+    const timelineYears = document.querySelectorAll('.timeline-year');
+    if (timelineYears.length > 0) {
+        // 默认展开第一个年份（2025年）
+        timelineYears[0].classList.add('active');
+    }
+});
     </script>
 </body>
 </html>
