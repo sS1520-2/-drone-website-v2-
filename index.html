@@ -120,11 +120,10 @@
                 <div class="photo-item">
                     <div class="photo-placeholder">🖼️ 团队合影</div>
                     <p>团队建设</p>
-                </div>
-                <div class="photo-item">
-                    <div class="photo-placeholder">🖼️ 证书展示</div>
-                    <p>成果认证</p>
-                </div>
+<div class="photo-item" onclick="showCertificate('certificate1')">
+    <div class="photo-placeholder">🖼️ 证书展示</div>
+    <p>成果认证</p>
+</div>
             </div>
         </div>
     </section>
@@ -166,8 +165,8 @@
                         <div class="contact-info">
                             <div class="contact-item">
                                 <h3>📞 电话联系</h3>
-                                <p>17316838479</p>
-                                <a href="tel:17316838479" class="contact-button">立即拨打</a>
+                                <p>13870886333</p>
+                                <a href="tel:13870886333" class="contact-button">立即拨打</a>
                             </div>
                             <div class="contact-item">
                                 <h3>💼 合作方向</h3>
@@ -183,7 +182,24 @@
     <footer>
         <p>&copy; 2024 恩泰无人机空间. 由 Netlify 强力驱动</p>
     </footer>
-
+<!-- 证书模态框 -->
+<div id="certificateModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCertificate()">&times;</span>
+        <div class="certificate-container">
+            <img id="certificateImage" src="" alt="证书">
+            <div class="certificate-info">
+                <h3 id="certificateTitle">证书标题</h3>
+                <p id="certificateDesc">证书描述</p>
+                <div class="certificate-details">
+                    <p><strong>颁发机构：</strong><span id="certificateOrg">机构名称</span></p>
+                    <p><strong>获得时间：</strong><span id="certificateDate">2025年7月</span></p>
+                    <p><strong>证书编号：</strong><span id="certificateNumber">编号信息</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <script>
     // 在脚本开头添加版本信息
     const SITE_VERSION = "2.0";
@@ -264,29 +280,76 @@
                 tab.style.display = 'none';
             });
         });
-        // 时间轴年份切换功能
-function toggleYear(year) {
-    const yearElement = document.querySelector(`.timeline-year:nth-child(${year === '2025' ? 1 : 2})`);
-    const isActive = yearElement.classList.contains('active');
+        // 证书数据
+const certificates = {
+    certificate1: {
+        image: "static/images/certificate1.jpg", // 你的证书图片路径
+        title: "无人机飞行证书",
+        description: "通过系统学习和严格考核，成功获得无人机飞行资格证书，标志着我们在无人机操作领域的专业能力。",
+        organization: "中国航空器拥有者及驾驶员协会",
+        date: "2025年7月15日",
+        number: "UAV-20250715-001"
+    },
+    // 可以添加更多证书
+    certificate2: {
+        image: "static/images/certificate2.jpg",
+        title: "植保作业认证",
+        description: "在农业植保领域的专业认证，证明我们具备使用无人机进行精准农业作业的能力。",
+        organization: "农业无人机应用协会",
+        date: "2025年8月20日",
+        number: "AG-UAV-20250820-002"
+    }
+};
+
+// 显示证书函数
+function showCertificate(certId) {
+    const certificate = certificates[certId];
+    if (!certificate) {
+        console.error('证书不存在:', certId);
+        return;
+    }
     
-    // 关闭所有年份
-    document.querySelectorAll('.timeline-year').forEach(el => {
-        el.classList.remove('active');
-    });
+    const modal = document.getElementById('certificateModal');
+    const img = document.getElementById('certificateImage');
+    const title = document.getElementById('certificateTitle');
+    const desc = document.getElementById('certificateDesc');
+    const org = document.getElementById('certificateOrg');
+    const date = document.getElementById('certificateDate');
+    const number = document.getElementById('certificateNumber');
     
-    // 如果点击的年份原本不是激活状态，则激活它
-    if (!isActive) {
-        yearElement.classList.add('active');
+    // 设置证书内容
+    img.src = certificate.image;
+    img.alt = certificate.title;
+    title.textContent = certificate.title;
+    desc.textContent = certificate.description;
+    org.textContent = certificate.organization;
+    date.textContent = certificate.date;
+    number.textContent = certificate.number;
+    
+    // 显示模态框
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // 防止背景滚动
+}
+
+// 关闭证书函数
+function closeCertificate() {
+    const modal = document.getElementById('certificateModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // 恢复滚动
+}
+
+// 点击模态框外部关闭
+window.onclick = function(event) {
+    const modal = document.getElementById('certificateModal');
+    if (event.target === modal) {
+        closeCertificate();
     }
 }
 
-// 页面加载时默认展开2025年
-document.addEventListener('DOMContentLoaded', function() {
-    // 确保时间轴功能正常工作
-    const timelineYears = document.querySelectorAll('.timeline-year');
-    if (timelineYears.length > 0) {
-        // 默认展开第一个年份（2025年）
-        timelineYears[0].classList.add('active');
+// ESC键关闭
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeCertificate();
     }
 });
     </script>
