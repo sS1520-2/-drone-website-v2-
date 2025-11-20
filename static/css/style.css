@@ -9,8 +9,8 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding-top: 80px; /* 为固定导航栏预留空间 */
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-attachment: fixed;
     min-height: 100vh;
 }
 
@@ -74,9 +74,8 @@ nav {
     justify-content: center;
     text-align: center;
     color: white;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url('static/images/hero-bg.jpg') center/cover;
-    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    margin-top: 80px;
 }
 
 .hero-content h1 {
@@ -121,6 +120,13 @@ main {
 .tab-container {
     position: relative;
     min-height: 500px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .tab-content {
@@ -131,18 +137,16 @@ main {
 /* 旅程部分 */
 .journey {
     background: white;
-    margin: 2rem auto;
-    padding: 5rem 5%;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .journey h2 {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: #3366cc;
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     position: relative;
 }
 
@@ -161,19 +165,15 @@ main {
 /* 旅程介绍 */
 .journey-intro {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     color: #666;
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 1.1rem;
 }
 
 /* 时间轴容器 */
 .timeline-container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto 4rem;
-    padding: 0 20px;
 }
 
 /* 年份标题 */
@@ -337,13 +337,42 @@ main {
     transform: scale(1.05);
 }
 
+/* 时间轴状态标签 */
+.timeline-status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.timeline-status.completed {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.timeline-status.in-progress {
+    background: #fff3e0;
+    color: #ef6c00;
+}
+
+.timeline-status.planned {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.timeline-status.future {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
 /* 图片展示部分 */
 .gallery-section {
     background: white;
     border-radius: 20px;
-    padding: 4rem 3rem;
+    padding: 3rem;
     margin: 3rem auto;
-    max-width: 1200px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
@@ -409,18 +438,16 @@ main {
 /* 关于我们部分 */
 .about {
     background: white;
-    margin: 2rem auto;
-    padding: 5rem 5%;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .about h2 {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: #3366cc;
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     position: relative;
 }
 
@@ -451,92 +478,19 @@ main {
     margin-right: auto;
 }
 
-/* 作品集/视频部分 */
-.gallery {
-    background: white;
-    margin: 2rem auto;
-    padding: 5rem 5%;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
-}
-
-.gallery h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #3366cc;
-    font-size: 2.8rem;
-    position: relative;
-}
-
-.gallery h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    border-radius: 2px;
-}
-
-/* 视频容器样式 */
-.video-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 500px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 20px;
-    margin: 3rem 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.video-placeholder {
-    text-align: center;
-    color: white;
-    padding: 4rem;
-}
-
-.video-icon {
-    font-size: 5rem;
-    margin-bottom: 2rem;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-.video-placeholder h3 {
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.video-placeholder p {
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-    opacity: 0.9;
-}
-
 /* 联系我部分 */
 .contact {
     background: white;
-    margin: 2rem auto;
-    padding: 5rem 5%;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .contact h2 {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: #3366cc;
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     position: relative;
 }
 
@@ -558,14 +512,14 @@ main {
 
 .contact-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .contact-item {
     background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-    padding: 3rem 2rem;
+    padding: 2rem;
     border-radius: 15px;
     text-align: center;
     transition: all 0.3s ease;
@@ -612,13 +566,8 @@ footer {
     background: linear-gradient(135deg, #2c3e50, #34495e);
     color: white;
     text-align: center;
-    padding: 3rem 2rem;
+    padding: 2rem;
     margin-top: 4rem;
-}
-
-footer p {
-    font-size: 1.1rem;
-    opacity: 0.9;
 }
 
 /* 证书模态框样式 */
@@ -734,18 +683,20 @@ footer p {
     font-weight: 600;
 }
 
-/* 为证书展示项添加悬停效果 */
-.photo-item[onclick] {
-    cursor: pointer;
-    transition: all 0.3s ease;
+.certificate-error {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
 }
 
-.photo-item[onclick]:hover {
-    transform: translateY(-8px);
+.certificate-error .error-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
 }
 
-.photo-item[onclick]:hover .photo-placeholder {
-    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+.certificate-error h3 {
+    color: #b21f1f;
+    margin-bottom: 1rem;
 }
 
 /* 动画效果 */
@@ -807,10 +758,15 @@ footer p {
         gap: 2rem;
     }
     
-    .about, .gallery, .contact, .journey {
-        padding: 3rem 1rem;
-        margin: 1rem auto;
+    .tab-container {
+        padding: 20px;
+        margin: 20px;
         border-radius: 15px;
+    }
+    
+    .journey, .about, .contact {
+        padding: 2rem 1rem;
+        border-radius: 10px;
     }
     
     /* 改进时间轴在移动端的显示 */
@@ -857,8 +813,9 @@ footer p {
     }
     
     .gallery-section {
-        padding: 2.5rem 1.5rem;
+        padding: 2rem 1rem;
         margin: 2rem auto;
+        border-radius: 15px;
     }
     
     .modal-content {
@@ -882,24 +839,7 @@ footer p {
     }
     
     .contact-item {
-        padding: 2rem 1.5rem;
-    }
-    
-    .video-container {
-        min-height: 400px;
-        margin: 2rem 0;
-    }
-    
-    .video-placeholder {
-        padding: 2.5rem 1.5rem;
-    }
-    
-    .video-icon {
-        font-size: 4rem;
-    }
-    
-    .video-placeholder h3 {
-        font-size: 1.8rem;
+        padding: 1.5rem;
     }
 }
 
@@ -919,9 +859,8 @@ footer p {
     
     .journey h2,
     .about h2,
-    .gallery h2,
     .contact h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
     
     .photo-grid {
@@ -931,5 +870,14 @@ footer p {
     
     .contact-info {
         grid-template-columns: 1fr;
+    }
+    
+    .timeline-year h3 {
+        font-size: 1.3rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .timeline-content {
+        padding: 1.5rem;
     }
 }

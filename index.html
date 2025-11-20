@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>无人机飞行员 - 空中视野的创造者</title>
-    <link rel="stylesheet" href="static/css/style.css?v=2.0">
+    <title>恩泰无人机空间 - 空中视野的创造者</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -14,9 +14,9 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#home">首页</a></li>
-                <li><a href="#" onclick="showTab('about'); return false;">关于我们团队</a></li>
-                <li><a href="#" onclick="showTab('portfolio'); return false;">作品集</a></li>
-                <li><a href="#" onclick="showTab('contact'); return false;">联系我</a></li>
+                <li><a href="#" onclick="showTab('about'); return false;">关于我们</a></li>
+                <li><a href="#" onclick="showTab('journey'); return false;">成长历程</a></li>
+                <li><a href="#" onclick="showTab('contact'); return false;">联系我们</a></li>
             </ul>
         </nav>
     </header>
@@ -34,7 +34,20 @@
 
         <!-- 标签页容器 -->
         <div class="tab-container">
-            <!-- 探索旅程标签页 -->
+            <!-- 关于我们团队标签页 -->
+            <div id="about-tab" class="tab-content">
+                <section class="about">
+                    <h2>关于我们团队</h2>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p>一群热爱无人机的少年，怀揣着对天空的向往和对技术的热情，等待着你加入我们的飞行之旅。</p>
+                            <p>在这里，我们分享飞行经验、技术心得，共同探索无人机的无限可能。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- 成长历程标签页 -->
             <div id="journey-tab" class="tab-content">
                 <section class="journey">
                     <h2>我们的成长历程</h2>
@@ -87,7 +100,7 @@
                                     </div>
                                 </div>
                                 
-                                <!-- 9月事件 -->
+                                <!-- 新增的9月事件 -->
                                 <div class="timeline-item">
                                     <div class="timeline-date">2025年9月</div>
                                     <div class="timeline-dot"></div>
@@ -101,7 +114,7 @@
                                     </div>
                                 </div>
                                 
-                                <!-- 10月事件 -->
+                                <!-- 新增的10月事件 -->
                                 <div class="timeline-item">
                                     <div class="timeline-date">2025年10月</div>
                                     <div class="timeline-dot"></div>
@@ -115,7 +128,7 @@
                                     </div>
                                 </div>
                                 
-                                <!-- 11月事件 -->
+                                <!-- 新增的11月事件 -->
                                 <div class="timeline-item">
                                     <div class="timeline-date">2025年11月</div>
                                     <div class="timeline-dot"></div>
@@ -190,38 +203,10 @@
                 </section>
             </div>
             
-            <!-- 关于我们团队标签页 -->
-            <div id="about-tab" class="tab-content">
-                <section class="about">
-                    <h2>关于我们团队</h2>
-                    <div class="about-content">
-                        <div class="about-text">
-                            <p>一群热爱无人机的少年，怀揣着对天空的向往和对技术的热情，等待着你加入我们的飞行之旅。</p>
-                            <p>在这里，我们分享飞行经验、技术心得，共同探索无人机的无限可能。</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            
-            <!-- 作品集标签页 -->
-            <div id="portfolio-tab" class="tab-content">
-                <section class="gallery">
-                    <h2>精彩瞬间</h2>
-                    <div class="video-container">
-                        <div class="video-placeholder">
-                            <div class="video-icon">🎬</div>
-                            <h3>精彩视频即将上线</h3>
-                            <p>我们正在准备最震撼的无人机航拍视频</p>
-                            <p>敬请期待！</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            
-            <!-- 联系我标签页 -->
+            <!-- 联系我们标签页 -->
             <div id="contact-tab" class="tab-content">
                 <section class="contact">
-                    <h2>联系我</h2>
+                    <h2>联系我们</h2>
                     <div class="contact-content">
                         <div class="contact-info">
                             <div class="contact-item">
@@ -233,6 +218,10 @@
                                 <h3>💼 合作方向</h3>
                                 <p>无人机航拍 · 编程教学 · 项目开发</p>
                             </div>
+                            <div class="contact-item">
+                                <h3>📍 公司地址</h3>
+                                <p>瑞昌蒙牛乳业湓城东路60号</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -241,7 +230,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 恩泰无人机空间. 由 Netlify 强力驱动</p>
+        <p>&copy; 2025 恩泰无人机空间. 由 Vercel 强力驱动</p>
     </footer>
 
     <!-- 证书模态框 -->
@@ -249,8 +238,23 @@
         <div class="modal-content">
             <span class="close" onclick="closeCertificate()">&times;</span>
             <div class="certificate-container">
-                <img id="certificateImage" src="" alt="证书">
-                <div class="certificate-info">
+                <img id="certificateImage" src="" alt="证书" onerror="handleImageError(this)">
+                <div id="certificateError" class="certificate-error" style="display: none;">
+                    <div class="error-icon">❌</div>
+                    <h3>证书图片加载失败</h3>
+                    <p>抱歉，证书图片暂时无法显示。请检查图片路径或稍后再试。</p>
+                    <p>您也可以直接查看证书信息：</p>
+                    <div class="certificate-info">
+                        <h3 id="fallbackTitle">证书标题</h3>
+                        <p id="fallbackDesc">证书描述</p>
+                        <div class="certificate-details">
+                            <p><strong>颁发机构：</strong><span id="fallbackOrg">机构名称</span></p>
+                            <p><strong>获得时间：</strong><span id="fallbackDate">2025年7月</span></p>
+                            <p><strong>证书编号：</strong><span id="fallbackNumber">编号信息</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-info" id="certificateInfo">
                     <h3 id="certificateTitle">证书标题</h3>
                     <p id="certificateDesc">证书描述</p>
                     <div class="certificate-details">
@@ -264,10 +268,6 @@
     </div>
 
     <script>
-        // 在脚本开头添加版本信息
-        const SITE_VERSION = "2.0";
-        console.log("网站版本:", SITE_VERSION);
-
         // 显示指定标签页并隐藏其他所有标签页
         function showTab(tabName) {
             console.log('切换到标签页:', tabName);
@@ -306,7 +306,7 @@
         // 证书数据
         const certificates = {
             certificate1: {
-                image: "static/images/certificate1.jpg",
+                image: "images/certificate1.jpg",
                 title: "无人机飞行证书",
                 description: "通过系统学习和严格考核，成功获得无人机飞行资格证书，标志着我们在无人机操作领域的专业能力。",
                 organization: "中国航空器拥有者及驾驶员协会",
@@ -314,7 +314,7 @@
                 number: "UAV-20250807-001"
             },
             certificate2: {
-                image: "static/images/certificate2.jpg",
+                image: "images/certificate2.jpg",
                 title: "植保作业认证",
                 description: "在农业植保领域的专业认证，证明我们具备使用无人机进行精准农业作业的能力。",
                 organization: "农业无人机应用协会",
@@ -348,9 +348,29 @@
             date.textContent = certificate.date;
             number.textContent = certificate.number || '暂无编号';
             
+            // 设置备用信息（图片加载失败时显示）
+            document.getElementById('fallbackTitle').textContent = certificate.title;
+            document.getElementById('fallbackDesc').textContent = certificate.description;
+            document.getElementById('fallbackOrg').textContent = certificate.organization;
+            document.getElementById('fallbackDate').textContent = certificate.date;
+            document.getElementById('fallbackNumber').textContent = certificate.number || '暂无编号';
+            
             // 显示模态框
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
+            
+            // 重置错误状态
+            document.getElementById('certificateError').style.display = 'none';
+            document.getElementById('certificateInfo').style.display = 'block';
+            img.style.display = 'block';
+        }
+
+        // 处理图片加载错误
+        function handleImageError(img) {
+            console.error('证书图片加载失败:', img.src);
+            img.style.display = 'none';
+            document.getElementById('certificateError').style.display = 'block';
+            document.getElementById('certificateInfo').style.display = 'none';
         }
 
         // 关闭证书函数
